@@ -1,0 +1,6 @@
+node_modules
+.env
+.parcel-cache
+dist
+packages/**/node_modules
+package-lock.json
