@@ -3,7 +3,7 @@
 
 process.env.SKIP_DB = process.env.SKIP_DB || '1';
 
-import app from './server';
+import { app } from './server.js';
 
 if (!app || typeof app !== 'function') {
   console.error('API test failed: exported app is not an Express application');
