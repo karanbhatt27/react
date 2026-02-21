@@ -1,7 +1,8 @@
-const path = require('path');
-const express = require('express');
-const mongoose = require('mongoose');
-require('dotenv').config({ path: path.join(__dirname, '.env') });
+import path from 'path';
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 const app = express();
 
@@ -94,10 +95,10 @@ app.get('/health', (req, res) => {
 });
 
 // Export app so CI/tests can import without starting the listener
-module.exports = { app, connectDB };
+export { app, connectDB };
 
 // If run directly, connect DB and start the listener
-if (require.main === module) {
+if (process.argv[1] === new URL(import.meta.url).pathname) {
   (async () => {
     await connectDB();
     const PORT = process.env.PORT || 5000;
