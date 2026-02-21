@@ -25,5 +25,11 @@ jobs:
       - name: Run API tests
         run: npm run test:api
 
-      - name: Run UI build (serves as UI test)
+      - name: Build API
+        run: npm run build:api
+
+      - name: Run UI tests 
         run: npm run test:ui
+
+      - name: Build UI
+        run: npm run build:ui
