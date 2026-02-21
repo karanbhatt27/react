@@ -7,8 +7,9 @@
     "start:ui": "parcel packages/ui/index.html --open",
     "start": "concurrently \"npm run start:api\" \"npm run start:ui\"",
     "dev": "concurrently \"npm run start:api\" \"npm run start:ui\"",
+    "build:api": "node -c packages/api/server.js && echo 'API syntax valid'",
     "build:ui": "parcel build packages/ui/index.html",
-    "build:api": "cd packages/api && npm run build",
+    "build": "npm run build:api && npm run build:ui",
     "test:api": "node packages/api/test.js",
     "test:ui": "cd packages/ui && npm run test",
     "test": "npm run test:api && npm run test:ui"
